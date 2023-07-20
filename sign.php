@@ -1,27 +1,5 @@
 <?php
-if(isset($_POST['sign'])){
-$name = $_POST['name'];
-$email = $_POST['email'];
-$pass = $_POST['pass'];
-$phone = $_POST['phone'];
-
-
-    $host = "localhost";
-$user_name  = "root";
-$password =  "";
-$database_name = "mydb";
-
-$conn = mysqli_connect($host, $user_name, $password, $database_name);
-$query = "insert into blog_user (user_name, email , email_password , phone ) values('$name', '$email', '$pass', '$phone')";
-
-$result = mysqli_query($conn , $query);
-
-if($result ){
-    echo "user regsitered successfully";
-}else{
-    echo "registration failed please try again".mysqli_error($conn);
-}
-}
+include "backend\signup_backend.php";
 
 ?>
 <!DOCTYPE html>
@@ -46,6 +24,15 @@ if($result ){
             font-style: italic;
             font-family: 'Times New Roman', Times, serif;
         }
+        .buttons{
+            display:flex;
+            justify-content: space-evenly;
+        }
+        .buttton{
+            height:26px;
+            background-color:blue;
+            border-radius:10px;
+        }
     </style>
 </head>
 <body>
@@ -60,8 +47,11 @@ if($result ){
         <br><br><br>
 
         <input type="number" class="form-control" placeholder="Phone number" name="phone"><br><br><br>
+<div class="buttons">
+        <a href="/my _work/index.php" ><h2>Back</h2> </a>
+        <input type="submit"  value="Sign up" name="sign" class="button">
+</div>
 
-        <input type="submit"  value="Sign up" name="sign"><br>
 
 
         

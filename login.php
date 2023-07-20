@@ -1,24 +1,9 @@
+
 <?php
-if(isset($_POST['login'])){
-$email = $_POST['email'];
-$pass = $_POST['pass'];
+// session_start();
 
- $host = "localhost";
-$user_name  = "root";
-$password =  "";
-$database_name = "mydb";
+include "backend\login_backend.php";
 
-$conn = mysqli_connect($host, $user_name, $password, $database_name);
-$email_query =  "select * from blog_user where email = '$email'  &&  email_password = '$pass' ";
-$results = mysqli_query($conn , $email_query);
-
-
-if(mysqli_num_rows($results) == 0){
-    echo "this user does not exist";
-}else{
-echo "this user exists";
-}
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,6 +27,10 @@ echo "this user exists";
             font-style: italic;
             font-family: 'Times New Roman', Times, serif;
         }
+        .buttons{
+            display:flex;
+            justify-content: space-evenly;
+        }
     </style>
 </head>
 <body>
@@ -54,8 +43,11 @@ echo "this user exists";
         <input type="password" class="form-control" placeholder="Email password" name="pass">
         <br><br><br>
 
+<div class="buttons">
+<a href="/my _work/index.php" ><h2>Back</h2> </a>
+<input type="submit"  value="Login" name="login"><br>
 
-        <input type="submit"  value="Login" name="login"><br>
+</div>
 
 
         
