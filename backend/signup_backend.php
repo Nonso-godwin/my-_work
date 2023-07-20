@@ -1,13 +1,15 @@
 <?php
 
 if(isset($_POST['sign'])){
+    include '/connection.php';
+
     $name = $_POST['name'];
     $email = $_POST['email'];
     $pass = $_POST['pass'];
     $phone = $_POST['phone'];
     
     
-    include 'connection.php';
+    
     
     $query = "insert into blog_user (user_name, email , email_password , phone) values('$name', '$email', '$pass', '$phone')";
     

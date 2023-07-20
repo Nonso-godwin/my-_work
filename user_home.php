@@ -1,26 +1,4 @@
-<?php
-session_start();
-include 'connection.php';
-$querry = "select * from blog";
 
-$result = mysqli_query($conn , $querry);
-if(mysqli_num_rows($result) > 0){
-    $users = [];
-   while($each_row =  mysqli_fetch_assoc($result)){
- array_push($users , $each_row);
-   }
-
-    var_dump($users);
-    foreach($users['blog_content'] as $content){
-        echo $content;
-    }
-
-}else{
-    echo "No users found  ";
-    
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,9 +34,14 @@ flex-direction:column;
             <a href="/my _work/new-blog.php" class="new"><h3>New blog +</h3></a>
             </div>
 <br><br><br>
-        <div class="blog" >
-            <h1>All blogs</h1>
-        </div>
-    </div>
+<h3>
+<?php
+   include 'backend\userhome_backend.php';
+
+?>
+</h3>
+    </div><br><br>
+    <a href="/my _work/index.php" ><h2>Log out</h2> </a>
+    
 </body>
 </html>
